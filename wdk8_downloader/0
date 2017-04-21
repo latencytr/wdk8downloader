@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BurnManifest xmlns="http://schemas.microsoft.com/wix/2008/Burn">
+<Log PathVariable="WixBundleLog" Prefix="wdk\Windows Driver Kit for Windows 8.1" Extension="log" />
+<RelatedBundle Id="{582264D4-D731-3B67-9005-C0BF04E7949D}" Action="Addon" />
+<RelatedBundle Id="{B40FCA65-53E5-34EC-93F5-454B887A2A02}" Action="Addon" />
+<RelatedBundle Id="{E965A305-ADED-3CA8-A4C4-DA88F9CE1F6D}" Action="Addon" />
+<RelatedBundle Id="{A23622D3-E8F4-3F0F-BEC1-9A8A95E6E6DC}" Action="Addon" />
+<RelatedBundle Id="{B281F939-FC8C-4DB6-AABE-4F9D2277CC0F}" Action="Upgrade" />
+<Variable Id="SetupSessionState" Hidden="no" Persisted="yes" />
+<Variable Id="WixBundleName" Hidden="no" Persisted="yes" />
+<Variable Id="WixBundleOriginalSource" Hidden="no" Persisted="yes" />
+<Variable Id="WixBundleLastUsedSource" Hidden="no" Persisted="yes" />
+<RegistrySearch Id="wrs3AE5091C172E35BD4B2C09A8D8ABFC49" Variable="VS2013INSTALL" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\12.0" Value="ShellFolder" Type="value" VariableType="string" />
+<RegistrySearch Id="wrs8CD1B6F8EF0BC08DE31B957529F7120C" Variable="Netfx4x64FullVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Net Framework Setup\NDP\v4\Full" Value="Version" Type="value" Win64="yes" VariableType="string" />
+<RegistrySearch Id="wrs9175605E9E65F1A667EF1ABF90F5E4A2" Variable="VSWDX2013INSTALL" Root="HKLM" Key="SOFTWARE\Microsoft\WDExpress\12.0" Value="ShellFolder" Type="value" VariableType="string" />
+<RegistrySearch Id="wrsB66CA9D0272921F9E12C583803857443" Variable="Netfx45x64FullVersion" Root="HKLM" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" Value="Release" Type="value" Win64="yes" VariableType="string" />
+<RegistrySearch Id="wrsCAC97CC67442501067B51AAD1CDF4FD1" Variable="Netfx4FullVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Net Framework Setup\NDP\v4\Full" Value="Version" Type="value" VariableType="string" />
+<RegistrySearch Id="wrsD0C1AF9BA374041657770BC8225D800D" Variable="Netfx45FullVersion" Root="HKLM" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" Value="Release" Type="value" VariableType="string" />
+<UX SplashScreen="yes">
+<Payload Id="ManagedBootstrapperApplicationHost.RtfLicense.Minimal" FilePath="mbahost.dll" FileSize="77312" Hash="8A14BE6874A5783DE366D3B6B43B2EF0303AA36E" Packaging="embedded" SourcePath="u0" />
+<Payload Id="payE9727C2260574743A8BE6CB9EE380EB2" FilePath="license.rtf" FileSize="64354" Hash="678D21CC542B9CCA66208BCCABB02B05CD1B6CE7" Packaging="embedded" SourcePath="u1" />
+<Payload Id="payC6F85F1F3E2AE8079767CD594FB4E835" FilePath="mbapreq.png" FileSize="797" Hash="75AE41181581FD6376CA9CA88147011E48BF9A30" Packaging="embedded" SourcePath="u2" />
+<Payload Id="pay07D80CAF5EE74A60B2FA1D3E016A7A74" FilePath="mbapreq.thm" FileSize="3409" Hash="92F4E451C416BC548CB5719B5FBC806259D1ADBA" Packaging="embedded" SourcePath="u3" />
+<Payload Id="payC1C9607FEA8E1910E9DB5AD299EE50E6" FilePath="mbapreq.wxl" FileSize="1320" Hash="8A5655033EB7D2A7EEB6F037BB6AF658ABBD616B" Packaging="embedded" SourcePath="u4" />
+<Payload Id="pay881A094F1AE148235D338A3762B46EBD" FilePath="NetfxLicense.rtf" FileSize="155324" Hash="7F8E1E93F71C18E02FC3A6CA0C905061FEBFEC67" Packaging="embedded" SourcePath="u5" />
+<Payload Id="pay008C1691C693A37DBA1E4A3483FEC301" FilePath="BootstrapperCore.config" FileSize="877" Hash="B99941380123D0A30A6CA0BFC9C782841A8BF449" Packaging="embedded" SourcePath="u6" />
+<Payload Id="pay262AA2C762AD5996AEFE2891934CFF4A" FilePath="BootstrapperCore.dll" FileSize="73728" Hash="13B94E1ADABD0CA26933950A9C006C9CACDAAFE0" Packaging="embedded" SourcePath="u7" />
+<Payload Id="payAA646FDBC8908E78C7BCBF204AE671D3" FilePath="mbapreq.dll" FileSize="124928" Hash="4F3FF44F600D72AA1ED75F934F307B09D6068153" Packaging="embedded" SourcePath="u8" />
+<Payload Id="payB282F2451C182E7C65C5BD5207EC0731" FilePath="Microsoft.Bootstrapper.dll" FileSize="151040" Hash="DB7A7EAA71C828DD784DE9E0757A5AD27F50168D" Packaging="embedded" SourcePath="u9" />
+<Payload Id="payDBFE7C251051F4AE1C48FF7C23B57E1C" FilePath="Microsoft.Bootstrapper.Presentation.dll" FileSize="192512" Hash="2EE28DA82F17D3057FE1DE8DF1FEB49168CB6016" Packaging="embedded" SourcePath="u10" />
+<Payload Id="payF64A63D3A19B7E2104C8B7AD85CF608C" FilePath="sqmapi.dll" FileSize="196416" Hash="80887BDB64335762A3B1D78F7365C4EE9CFAEAB5" CertificateRootPublicKeyIdentifier="6B26E39D85821E8C787E809F1BBE221AAE95E63D" CertificateRootThumbprint="D468FAEB5190BF9DECD9827AF470F799C41A769C" Packaging="embedded" SourcePath="u11" />
+<Payload Id="payC098A8678BF5638DE1BD6ABE14B1E3E7" FilePath="UserExperienceManifest.xml" FileSize="9434" Hash="0FE13062F88C4A5C8D4204DD3B890E194DE3E09C" Packaging="embedded" SourcePath="u12" />
+<Payload Id="ux018A3672B47BC33C533DBA884702200B" FilePath="BootstrapperApplicationData.xml" FileSize="14408" Hash="3E62063369F5BC9AFF34CC569C342DE17EFEE996" Packaging="embedded" SourcePath="u13" />
+</UX>
+<Payload Id="pay867C14C04262152841173685F0E711B0" FilePath="Installers\1c33d17316f25da4cbe42ca09b018509.cab" FileSize="210822" Hash="0820F57F6078CB3A52158B189CACEBEA97E2B542" Packaging="external" SourcePath="Installers\1c33d17316f25da4cbe42ca09b018509.cab" />
+<Payload Id="payF179DC1C4866F63F7BB9057BF1AD363D" FilePath="Installers\b6923fe117b94abbb1703c09cf619759.cab" FileSize="210691" Hash="8C8E87466E8B8888F0D94852AB89901EF89873A4" Packaging="external" SourcePath="Installers\b6923fe117b94abbb1703c09cf619759.cab" />
+<Payload Id="package_WindowsDebuggingVSIntegrationDev12x86_en_us" FilePath="Installers\Windows Debugging VS Integration Dev12-x86_en-us.msi" FileSize="303104" Hash="04DF99A39F10BAFDD3965C7A5054D50DAA655FF3" Packaging="external" SourcePath="Installers\Windows Debugging VS Integration Dev12-x86_en-us.msi" />
+<Payload Id="pay5A5C80FC2D1F347B52114A98BE1D90D2" FilePath="Installers\cba8b7632b3db00d49310131f6e3a6b4.cab" FileSize="155169" Hash="7188DF6FAD25574DA3BDDF7FB9874B806F42F5A5" Packaging="external" SourcePath="Installers\cba8b7632b3db00d49310131f6e3a6b4.cab" />
+<Payload Id="payA22696F2D43F1D9684B69415891F8876" FilePath="Installers\fdff2a164881f1c4027d0d5423174fa1.cab" FileSize="16995" Hash="75B8C9726299271865BB614A8B14531965B105F7" Packaging="external" SourcePath="Installers\fdff2a164881f1c4027d0d5423174fa1.cab" />
+<Payload Id="package_WindowsDebuggingWDKIntegrationx86_en_us" FilePath="Installers\Windows Debugging WDK Integration-x86_en-us.msi" FileSize="303104" Hash="EF83E0CE4B551F4C51B66054D19A29BAF4A6A102" Packaging="external" SourcePath="Installers\Windows Debugging WDK Integration-x86_en-us.msi" />
+<Payload Id="payBE956D9DC5B716C0EC859ED942842D59" FilePath="Installers\00764edd0b3a48a0db94263bbf478c1b.cab" FileSize="23752" Hash="931C27519C420E2C7D69AFD720B696B4879E6BE9" Packaging="external" SourcePath="Installers\00764edd0b3a48a0db94263bbf478c1b.cab" />
+<Payload Id="pay7803D1134343E5851BE7ADF984FB5783" FilePath="Installers\00ff78d6815972e4955c4f02a1edf6c1.cab" FileSize="325804" Hash="C57216FF3EBD48D642C7E14AC358A4694BD051C6" Packaging="external" SourcePath="Installers\00ff78d6815972e4955c4f02a1edf6c1.cab" />
+<Payload Id="pay9DA579FED7FDD9B319754C7FB9826EA3" FilePath="Installers\01275b660c3f88f45cc87bfcf84b7cfd.cab" FileSize="1168546" Hash="E4CCB72EEA01CFD49EA784FBB4B577F7F2C19361" Packaging="external" SourcePath="Installers\01275b660c3f88f45cc87bfcf84b7cfd.cab" />
+<Payload Id="pay00B6FB9E40D7E33B78E5749B479C1E1E" FilePath="Installers\0253f7df0974f9d7169b410d812a5385.cab" FileSize="3875304" Hash="59643ED679B9A720B25E571AA9D8960359A6BFFB" Packaging="external" SourcePath="Installers\0253f7df0974f9d7169b410d812a5385.cab" />
+<Payload Id="payB695D6C223CB2DF67E7E9E61F7709AAD" FilePath="Installers\09844d1815314132979ed88093f49c6f.cab" FileSize="37517" Hash="3D1C6CEDC545FA8185B7D5DF0B07F327087940C5" Packaging="external" SourcePath="Installers\09844d1815314132979ed88093f49c6f.cab" />
+<Payload Id="payF2FDB9A21DFD718E0BEC3F1A9CE43397" FilePath="Installers\114c321d61ae77816824fed67cd25704.cab" FileSize="555657" Hash="E7B800F8A140D680881DFF3BFC5CA589AE3D90A4" Packaging="external" SourcePath="Installers\114c321d61ae77816824fed67cd25704.cab" />
+<Payload Id="pay6CEFE6D9651E381FD2D0315A8A8A736A" FilePath="Installers\198d49fd8b10406563e8a979d53cca61.cab" FileSize="116328" Hash="D37676AF8A8050E79895DB95CF74650BD573C4DD" Packaging="external" SourcePath="Installers\198d49fd8b10406563e8a979d53cca61.cab" />
+<Payload Id="payDE86A2DC0D1CABFCBEA465C3E5D655B2" FilePath="Installers\1a6de1128afbaec1c53b8dd40c58a1fa.cab" FileSize="190416" Hash="FDE1F1CA407123D51EB4EE5AF9A730ECC1A2A15C" Packaging="external" SourcePath="Installers\1a6de1128afbaec1c53b8dd40c58a1fa.cab" />
+<Payload Id="pay5A0B11321199BE5D537BCB6E181BF11B" FilePath="Installers\1a822224523be67061edcc97f6c0e36a.cab" FileSize="648238" Hash="230758D37DFCB932A87A2A706D81437FCC3A24F5" Packaging="external" SourcePath="Installers\1a822224523be67061edcc97f6c0e36a.cab" />
+<Payload Id="payEC9EC59CCF712FDE160BE5A7B2C01CF4" FilePath="Installers\24484a924a27bad42dd3520eec49b578.cab" FileSize="5231795" Hash="BB122278C4F87B9EF8F0BA2A7A378F97A210231D" Packaging="external" SourcePath="Installers\24484a924a27bad42dd3520eec49b578.cab" />
+<Payload Id="payC3B28AD5F9233CF52787CA4C83BD75A3" FilePath="Installers\2c1331a0f4ecc46dfa39f43a575305e0.cab" FileSize="461581" Hash="E42222A7615236E88B0DB6D7B765728D2FE2D121" Packaging="external" SourcePath="Installers\2c1331a0f4ecc46dfa39f43a575305e0.cab" />
+<Payload Id="pay305D658F2B373DD263E8761C69899311" FilePath="Installers\32a4666c78523692d1d18f7accfa99ad.cab" FileSize="13763" Hash="3711998B2802F6CAE30C85A1C83C16DDC75F0276" Packaging="external" SourcePath="Installers\32a4666c78523692d1d18f7accfa99ad.cab" />
+<Payload Id="pay25E17EC7232A7DE09106090ADF1DD35B" FilePath="Installers\32a9c44b2398a6ce348c28bf79f74f37.cab" FileSize="1834562" Hash="FB84BA1474FACF0AA75610A1F50F52C01E60A612" Packaging="external" SourcePath="Installers\32a9c44b2398a6ce348c28bf79f74f37.cab" />
+<Payload Id="pay0AB7F271DB5BB675B775981C2682B23B" FilePath="Installers\34ee98a7c9420178c55f176f75c3fe10.cab" FileSize="2468926" Hash="3087FF690B279FA08F29708F3664C1FD41415698" Packaging="external" SourcePath="Installers\34ee98a7c9420178c55f176f75c3fe10.cab" />
+<Payload Id="pay87C19FC483099180E003010A82DB3270" FilePath="Installers\3960f55df7c8073f3997269e5e390abc.cab" FileSize="16032" Hash="CFAEC403F55B552919C80B82B237ED29DF6CC277" Packaging="external" SourcePath="Installers\3960f55df7c8073f3997269e5e390abc.cab" />
+<Payload Id="pay0714D5A60AA3B25157BF8613BC643E96" FilePath="Installers\3a53dffe0b4548753bc34825894f19bf.cab" FileSize="647196" Hash="6F7741844509DC9F9958CDF72945E556528E9735" Packaging="external" SourcePath="Installers\3a53dffe0b4548753bc34825894f19bf.cab" />
+<Payload Id="pay47A52138262AD216DD2263F2994074C1" FilePath="Installers\3ca392fde3898c3be052ddcddd14bb5f.cab" FileSize="3621972" Hash="F25B337E798F279DB39D72623D3769CFA18A451D" Packaging="external" SourcePath="Installers\3ca392fde3898c3be052ddcddd14bb5f.cab" />
+<Payload Id="pay8B137D69E0A1E866F61282FD24094A9E" FilePath="Installers\3fd33565109a0c352b790e66af941e1d.cab" FileSize="50409463" Hash="DEFAE57167424ADFAD528181019F4BB0DA25B261" Packaging="external" SourcePath="Installers\3fd33565109a0c352b790e66af941e1d.cab" />
+<Payload Id="pay483CFF806D2BD38C55F4288A92BB53C6" FilePath="Installers\437e52bd67ebe977a8957439db5ecf75.cab" FileSize="1201064" Hash="A31655A1F9EB06C46D52CB2AC01C8D0DC0EE2173" Packaging="external" SourcePath="Installers\437e52bd67ebe977a8957439db5ecf75.cab" />
+<Payload Id="payB5FB607EA2144B6FDF1C1C05E6745B4C" FilePath="Installers\4ac48dbdddbc8ce04721f519b9cf1698.cab" FileSize="1378746" Hash="189C9E4213C13469978ECA661417A8B9114EDA95" Packaging="external" SourcePath="Installers\4ac48dbdddbc8ce04721f519b9cf1698.cab" />
+<Payload Id="payDA16349AA7EC4F09B738DBE7B1EE375A" FilePath="Installers\4de7a1422374f98369172705b05d4bf9.cab" FileSize="61366" Hash="7B5C135AF041BAED3D0AF7B10F19EF3F80CC9571" Packaging="external" SourcePath="Installers\4de7a1422374f98369172705b05d4bf9.cab" />
+<Payload Id="pay15902DBAF9EA1B2EB7612A569ABEEF90" FilePath="Installers\4fe4c8b88812f5339018c0eef95acdb9.cab" FileSize="982641" Hash="0FECB48337A24572A67EF28FD194B922D122B594" Packaging="external" SourcePath="Installers\4fe4c8b88812f5339018c0eef95acdb9.cab" />
+<Payload Id="payA6BD476D34F6ECABD65A291F47F6A744" FilePath="Installers\54452b970cd09d67feeca24661079c6a.cab" FileSize="13848" Hash="1A0E668FD96E28E22CB3A2F6BDFD9C6CA5D5D48B" Packaging="external" SourcePath="Installers\54452b970cd09d67feeca24661079c6a.cab" />
+<Payload Id="pay1EF6980CB004651A5F999A3D7C90219D" FilePath="Installers\590d28783ff280b8b0016c3492433241.cab" FileSize="1788868" Hash="6997A926072F31DCAAFA16207799080377C0AD3C" Packaging="external" SourcePath="Installers\590d28783ff280b8b0016c3492433241.cab" />
+<Payload Id="payCF4A421AABE48DAFD29991EF896134AC" FilePath="Installers\62ae6c75e6f754c2e333d638fb9b4963.cab" FileSize="129116" Hash="8A2C59DCE981AECEB96EE9F6B02DEE97B4D16C7B" Packaging="external" SourcePath="Installers\62ae6c75e6f754c2e333d638fb9b4963.cab" />
+<Payload Id="payCA7CE78929B4F15E201AEBBEF70E8839" FilePath="Installers\65506866c4badc69c104db09f5c2c4d4.cab" FileSize="101593" Hash="317B7AB36E92406434332DDF2955395DE6126B8F" Packaging="external" SourcePath="Installers\65506866c4badc69c104db09f5c2c4d4.cab" />
+<Payload Id="payFD184788733F2765EEF4D1FD1623872F" FilePath="Installers\67efa6e5817107d56650d9fbcd1d5c32.cab" FileSize="151800" Hash="7F26CD2B5AF7B1DE614FC8C6452B3A903D14364E" Packaging="external" SourcePath="Installers\67efa6e5817107d56650d9fbcd1d5c32.cab" />
+<Payload Id="pay41BA9A0B5A2F81238E2FE09BDB3BCDEA" FilePath="Installers\703316c9de0a32acf316d03b1cffc559.cab" FileSize="2548163" Hash="BF7D339228DC7A00B2BB1D2985DF3DAB95C61EDA" Packaging="external" SourcePath="Installers\703316c9de0a32acf316d03b1cffc559.cab" />
+<Payload Id="payBE9CD2F68C0124B40EA0E8CC41256278" FilePath="Installers\71462b3b74a2af35eaa5998e47f2b93e.cab" FileSize="21558481" Hash="413F0C41F91C856C8F5AE6253CF23BDC7F46EA90" Packaging="external" SourcePath="Installers\71462b3b74a2af35eaa5998e47f2b93e.cab" />
+<Payload Id="pay1C16C385FB53568E4BFFE571BF3B6559" FilePath="Installers\7178f554c01f912c749b622564106b02.cab" FileSize="63252" Hash="DF2DF65A344FA72E8E468DD18997E24B768AFCF8" Packaging="external" SourcePath="Installers\7178f554c01f912c749b622564106b02.cab" />
+<Payload Id="pay3A45B0D6CA4940DF12AD1239D5C2CACF" FilePath="Installers\72bda6e16f5c7a040361c1304b4b5b36.cab" FileSize="6244760" Hash="CD53845DF0F37CEC143092D9C7E001F185C7A441" Packaging="external" SourcePath="Installers\72bda6e16f5c7a040361c1304b4b5b36.cab" />
+<Payload Id="payB9210BFEB00366571D8B9BFD5B91871D" FilePath="Installers\74654e0595e05a162c50d9f696c4f0b1.cab" FileSize="123562" Hash="3AE36CA2E32DBD76E71CFDB508EEAF26B10AB7E0" Packaging="external" SourcePath="Installers\74654e0595e05a162c50d9f696c4f0b1.cab" />
+<Payload Id="pay1A942A71EDCBAD6CF5364C7CA426E571" FilePath="Installers\76584b0984d323c16d999f368d3ef204.cab" FileSize="76122" Hash="7AB510E39C8A605E1EED7EE6CE134397652BA144" Packaging="external" SourcePath="Installers\76584b0984d323c16d999f368d3ef204.cab" />
+<Payload Id="payD8FBBC263AAB1F7326F14A8434583425" FilePath="Installers\787bee96dbd26371076b37b13c405890.cab" FileSize="8008522" Hash="1D96860ACF6FD410BB6A3188032E3E489BC69AB3" Packaging="external" SourcePath="Installers\787bee96dbd26371076b37b13c405890.cab" />
+<Payload Id="pay1F59B8816326FAF5A08E6C152CE5D178" FilePath="Installers\79e9b68a34bc84ab465fe1b79b84a325.cab" FileSize="708207" Hash="3CD5BA92BF44335063E48C0553DCA3C0EB7A4A24" Packaging="external" SourcePath="Installers\79e9b68a34bc84ab465fe1b79b84a325.cab" />
+<Payload Id="pay3BA9A717D1E330A2863AB81468875BBE" FilePath="Installers\7b777b573a4a4ba7494e1357d49f63eb.cab" FileSize="39699" Hash="97C9450C869FDC3D779FFCA231BD0DB09AFD03BC" Packaging="external" SourcePath="Installers\7b777b573a4a4ba7494e1357d49f63eb.cab" />
+<Payload Id="payBFCEFC68DDD7C29D389E313D935AEA35" FilePath="Installers\7cb1ba9318f4b586c6a3bdd541e7f3ad.cab" FileSize="16032" Hash="70BA9A7F64DCEB6765BE2B3313E2CBA1F3C2C7FC" Packaging="external" SourcePath="Installers\7cb1ba9318f4b586c6a3bdd541e7f3ad.cab" />
+<Payload Id="pay0822F60C6F7F82AFEC31425727DB6111" FilePath="Installers\82c1721cd310c73968861674ffc209c9.cab" FileSize="8415341" Hash="B2042705B50960317CDC8171F1E763E486A40951" Packaging="external" SourcePath="Installers\82c1721cd310c73968861674ffc209c9.cab" />
+<Payload Id="payDCCA00F33526B0D3513B8D93EBA852BE" FilePath="Installers\8540dc2a5be3a8fb964533d83b7991cd.cab" FileSize="1244033" Hash="830042B64253C6B836EEDF92805818A94964C634" Packaging="external" SourcePath="Installers\8540dc2a5be3a8fb964533d83b7991cd.cab" />
+<Payload Id="pay2166433B7324D77981A70FDF4D282F07" FilePath="Installers\89d65922a5de816bbf1348558a42d3e0.cab" FileSize="288376" Hash="25E6FFB11F0CF97DD3ABF2FEA33B83C25FC22F4A" Packaging="external" SourcePath="Installers\89d65922a5de816bbf1348558a42d3e0.cab" />
+<Payload Id="payFCAC09FC5221E89197FF1DBAB0F9484E" FilePath="Installers\96e8f767221532c6446fd1b8dad53b60.cab" FileSize="784307" Hash="15F23D99E7DC5A7CB70751969D3E3867EED6DB70" Packaging="external" SourcePath="Installers\96e8f767221532c6446fd1b8dad53b60.cab" />
+<Payload Id="payB0ACF328166557DE7597BB4FB1EC02A0" FilePath="Installers\9a7145bc3b132e5da6d44c0ab4a1af70.cab" FileSize="1477987" Hash="C9DDAE69AA786C934951C059D8FABBCFB494E62A" Packaging="external" SourcePath="Installers\9a7145bc3b132e5da6d44c0ab4a1af70.cab" />
+<Payload Id="pay1896699029B3E17EFA5D5CDFF18068EF" FilePath="Installers\a3e6d952abf6ea4c57299ff3ea47fac9.cab" FileSize="2313581" Hash="CABAA25FC3DD88289F0F6EA20A29E3D31B6D4460" Packaging="external" SourcePath="Installers\a3e6d952abf6ea4c57299ff3ea47fac9.cab" />
+<Payload Id="pay8D70C9DE20CF153E7518EF9E9676384D" FilePath="Installers\a76e4219ecb0f1c0006a6fe080c54ad9.cab" FileSize="2142344" Hash="11AB9E5EE57749119AD27CFF4489F31F2107BB8B" Packaging="external" SourcePath="Installers\a76e4219ecb0f1c0006a6fe080c54ad9.cab" />
+<Payload Id="pay0F2064B666A26E3EE798AC1AC0E08A81" FilePath="Installers\a93adc13cd8419c6ffda5c0a5d51991f.cab" FileSize="33741" Hash="A3D5CEDBEE7B47834F8B737454C9C5719D243077" Packaging="external" SourcePath="Installers\a93adc13cd8419c6ffda5c0a5d51991f.cab" />
+<Payload Id="payEF7B8187820E9082F15C6EB7D0E06E00" FilePath="Installers\af0d6547860d8f68c1b0c9da530f699d.cab" FileSize="35802" Hash="A5485F1888B3E6A160AE4D95B20A9D5710F14AF8" Packaging="external" SourcePath="Installers\af0d6547860d8f68c1b0c9da530f699d.cab" />
+<Payload Id="payFC8A9460268C4CF70FA7E702BE377EC2" FilePath="Installers\b29326d5ced13700a41e5db8f53330b5.cab" FileSize="16709875" Hash="57AA7FCC58C4EB99FA5ED1D9A5C14E975BA055C6" Packaging="external" SourcePath="Installers\b29326d5ced13700a41e5db8f53330b5.cab" />
+<Payload Id="payA2882E2542D75F2825515D4B1A71FBE7" FilePath="Installers\b4e095b0db159e6fe323e8f8fad34cb9.cab" FileSize="139525" Hash="A582D2C4DE80D06D08EC70AF7310D3D1C66413D7" Packaging="external" SourcePath="Installers\b4e095b0db159e6fe323e8f8fad34cb9.cab" />
+<Payload Id="payD3BFB3EE575F4C3AFF293248356EC796" FilePath="Installers\b98a31e36735eb82b3b238c68f36fbbf.cab" FileSize="2284005" Hash="BEC73AF7F116A0013AD69BBBA1BD5ACF59863EC1" Packaging="external" SourcePath="Installers\b98a31e36735eb82b3b238c68f36fbbf.cab" />
+<Payload Id="pay8F4FE7B57297218DCF25F879A2FFAE5E" FilePath="Installers\b9e21c1745518af24f31a8d3a58f7cad.cab" FileSize="100551" Hash="3C0E29371D553DFA313AA3635ED9417311AD9BBC" Packaging="external" SourcePath="Installers\b9e21c1745518af24f31a8d3a58f7cad.cab" />
+<Payload Id="pay65B117DB0F66764D5213D92D045E1833" FilePath="Installers\ba5d20281a858248e59d96d75c014391.cab" FileSize="477304" Hash="6DEF9CE8CF2A0DC7AA7B348B3166BE7F75E24AF4" Packaging="external" SourcePath="Installers\ba5d20281a858248e59d96d75c014391.cab" />
+<Payload Id="payDD4C28BFB3DEABF51F64ADC5F6B56F29" FilePath="Installers\baa2d817ae180ba7e772f1543c3bbdea.cab" FileSize="310408" Hash="4C620F2FB4D01DF6050C69551C7F6AEB3D85D849" Packaging="external" SourcePath="Installers\baa2d817ae180ba7e772f1543c3bbdea.cab" />
+<Payload Id="pay95A077006ABD2D8D71AF9A3AF118B2FF" FilePath="Installers\bba0f3391a23a53703d0c69a537c844c.cab" FileSize="22358" Hash="072819B55420FA054672AF9B996CBB0EEE8210EB" Packaging="external" SourcePath="Installers\bba0f3391a23a53703d0c69a537c844c.cab" />
+<Payload Id="pay413AA4B5F7815DC73D90C6CADC7C4B94" FilePath="Installers\c9e6efacca0447a0a0926cfed17e8bb0.cab" FileSize="14369" Hash="FE9AA3DB907ECD2A4BDC915CA926D5F8029D2A41" Packaging="external" SourcePath="Installers\c9e6efacca0447a0a0926cfed17e8bb0.cab" />
+<Payload Id="payEBB740F000D6E30B6C258ED779D20B84" FilePath="Installers\d2303186aad40bc4d581da29ff1e5074.cab" FileSize="17763194" Hash="A1F2E8536A8F3042A139278DEEB51016FF82EDB4" Packaging="external" SourcePath="Installers\d2303186aad40bc4d581da29ff1e5074.cab" />
+<Payload Id="pay37B15C6A505267E1F767F2AB4DFBD400" FilePath="Installers\d55d1e003fbb00a12c63b8f618e452bf.cab" FileSize="349518" Hash="50666A8BCE3981B700B9CC0D9A3893C9FC0F611A" Packaging="external" SourcePath="Installers\d55d1e003fbb00a12c63b8f618e452bf.cab" />
+<Payload Id="payE86A281CC2D60A7AEAD7DF739015FBEF" FilePath="Installers\dc5957c9732664f0755612b37a93483f.cab" FileSize="23453326" Hash="06486A2A069C03CB29D546EE4BC78E59AB710047" Packaging="external" SourcePath="Installers\dc5957c9732664f0755612b37a93483f.cab" />
+<Payload Id="pay315E34F2FA06D35DF536E0D6BC601BDC" FilePath="Installers\dcb0a55d6cacaa05ead299e1d3de3c6d.cab" FileSize="6244344" Hash="C59FB514393E920FE8BF6B799D8413478C560AD5" Packaging="external" SourcePath="Installers\dcb0a55d6cacaa05ead299e1d3de3c6d.cab" />
+<Payload Id="pay93073DD9A41DBDF342D0CB03C9208214" FilePath="Installers\e10f9740446a96314a1731aa7cb4286a.cab" FileSize="1468527" Hash="A090353FD8E0720437F544DB9DCABFA5756A6BB8" Packaging="external" SourcePath="Installers\e10f9740446a96314a1731aa7cb4286a.cab" />
+<Payload Id="pay25ACEBC72D80B4B0B6AF0B6B83C0EEBF" FilePath="Installers\e5950ce9ba509b3370ebf328742a5f45.cab" FileSize="25842" Hash="2705EC796431F9F095C07CE2CF32BB61EE13869A" Packaging="external" SourcePath="Installers\e5950ce9ba509b3370ebf328742a5f45.cab" />
+<Payload Id="payB16D603968FD4C096082DA738C755913" FilePath="Installers\e72f7a05080f7afe6140514ecb1e2f91.cab" FileSize="14560" Hash="99658EADE99DF25CCCDF27B5AA00B25FB92EEB57" Packaging="external" SourcePath="Installers\e72f7a05080f7afe6140514ecb1e2f91.cab" />
+<Payload Id="pay9A6FCE06C8A6997974204E9240A5A947" FilePath="Installers\e8bc712abeffd7c9711ee3f55d4aa99b.cab" FileSize="752683" Hash="E5DAC0E3028969D648CF92A34E97A3B87BAA73E6" Packaging="external" SourcePath="Installers\e8bc712abeffd7c9711ee3f55d4aa99b.cab" />
+<Payload Id="pay35200FEB58691D586BD639165936ADB5" FilePath="Installers\eafe2d554a73e54d76e41ce52191072f.cab" FileSize="5937191" Hash="75FE835BE9391629CEC3EF42B16254EBAA86A809" Packaging="external" SourcePath="Installers\eafe2d554a73e54d76e41ce52191072f.cab" />
+<Payload Id="pay33FC80D97C8421DC40163674E70930EB" FilePath="Installers\fe80f1b6d4cf60c919f4b3a0cd2f4306.cab" FileSize="1295944" Hash="981E8CE4C82FD0989A1917EF324B7E87F2426082" Packaging="external" SourcePath="Installers\fe80f1b6d4cf60c919f4b3a0cd2f4306.cab" />
+<Payload Id="package_WindowsDriverKitx86_en_us" FilePath="Installers\Windows Driver Kit-x86_en-us.msi" FileSize="1150976" Hash="5791FBAECC5076C72A59A53377FB9D3470BBA1DF" Packaging="external" SourcePath="Installers\Windows Driver Kit-x86_en-us.msi" />
+<Payload Id="pay144D2E2CF67015FDE8EDD14CEF82BECA" FilePath="Installers\5bed061a9b8a91551cb1330bcdafba7a.cab" FileSize="171809" Hash="C25019EFE61C40A48D4E8C5BC72147E46E5D1DDD" Packaging="external" SourcePath="Installers\5bed061a9b8a91551cb1330bcdafba7a.cab" />
+<Payload Id="pay0D4FB750101EF5F9D84F9A797832BF9D" FilePath="Installers\6a80ae174e00b6d2d482ee767f95289b.cab" FileSize="49344" Hash="71E31D011162E1AB7C71F55595B985E1BE011065" Packaging="external" SourcePath="Installers\6a80ae174e00b6d2d482ee767f95289b.cab" />
+<Payload Id="payC3DC9572925F4A0E24418540F04C6A5D" FilePath="Installers\75805f7d6b6083e4b1c499e239826491.cab" FileSize="157704" Hash="45746E2F3F4AE53797386D33F6431860D2A058DB" Packaging="external" SourcePath="Installers\75805f7d6b6083e4b1c499e239826491.cab" />
+<Payload Id="payF93862623A3D5B105592872D00BCB011" FilePath="Installers\77d95489b8fe25e426fb414b00cc97c2.cab" FileSize="976570" Hash="520881107A9C491730BAC62154B153C0D75706B1" Packaging="external" SourcePath="Installers\77d95489b8fe25e426fb414b00cc97c2.cab" />
+<Payload Id="payDF4BF59CE5CE202F493113E47C42A62F" FilePath="Installers\979845def068c7818ef1e6f72b92172e.cab" FileSize="22273" Hash="4D3B2F6102E58D00AA7043B5AE458484B2535E2E" Packaging="external" SourcePath="Installers\979845def068c7818ef1e6f72b92172e.cab" />
+<Payload Id="pay3DCFC8D4729D469DA99CA18AE3C3D30A" FilePath="Installers\d0535b691646da5dc469c981f4e566c5.cab" FileSize="257807" Hash="7E56DB8B72D004DA378513BBCE114DC007DA2603" Packaging="external" SourcePath="Installers\d0535b691646da5dc469c981f4e566c5.cab" />
+<Payload Id="pay68BD06872FF062C77B977D09BCFA7FB4" FilePath="Installers\dcebf3403b598cc369a33cfdd5d017c6.cab" FileSize="37397" Hash="0DF3A36D2F4EFE331562D891B3179B2B7586068E" Packaging="external" SourcePath="Installers\dcebf3403b598cc369a33cfdd5d017c6.cab" />
+<Payload Id="payDAF052C1E53F5A7572184CCF9541BB05" FilePath="Installers\ec2e67a78ac4b036c45a3688f2fa9987.cab" FileSize="1122298" Hash="AA51E0F051FA470A932B3709FD9C720FC07A3192" Packaging="external" SourcePath="Installers\ec2e67a78ac4b036c45a3688f2fa9987.cab" />
+<Payload Id="pay02F0795CE42C1BF9DD4ABE9E1D965246" FilePath="Installers\f70495ad9670b5f983a23b35439856af.cab" FileSize="25139" Hash="52F98FD9E34BF5A47658FB7E9033E12DF71B991B" Packaging="external" SourcePath="Installers\f70495ad9670b5f983a23b35439856af.cab" />
+<Payload Id="package_WindowsDriverKitVisualStudioDev12Contentx86_en_us" FilePath="Installers\Windows Driver Kit Visual Studio Dev12 Content-x86_en-us.msi" FileSize="327680" Hash="8FB2F420159C4669C15659749F8B91E2ED3CDF02" Packaging="external" SourcePath="Installers\Windows Driver Kit Visual Studio Dev12 Content-x86_en-us.msi" />
+<Payload Id="pay9147555EADC768FEC646C43BB65DC050" FilePath="Installers\aa61b75fd587db539b4d819508331ec0.cab" FileSize="23690" Hash="B9DED72ADA8A259DE71A43F9C05B91D406A8C2C8" Packaging="external" SourcePath="Installers\aa61b75fd587db539b4d819508331ec0.cab" />
+<Payload Id="package_WindowsDriverKitMSBuildContentDev12x86_en_us" FilePath="Installers\Windows Driver Kit MSBuild Content Dev12-x86_en-us.msi" FileSize="303104" Hash="6A52E7630BC523B2FC0415A85FE9E86BC6B1E128" Packaging="external" SourcePath="Installers\Windows Driver Kit MSBuild Content Dev12-x86_en-us.msi" />
+<Payload Id="pay5F02CDC89FB4EF18727DA316D7A3731D" FilePath="Installers\164049ff58ee4322bf8cd79a65d17916.cab" FileSize="15436" Hash="C9EB9E61D0B9622EB56EB03D77C11B87EC81CD8B" Packaging="external" SourcePath="Installers\164049ff58ee4322bf8cd79a65d17916.cab" />
+<Payload Id="payDB6986C6FE866A2378F6E66DC4D95FC0" FilePath="Installers\1b384a977dd4316f990507d55fe9e3ba.cab" FileSize="15102" Hash="A0A21FE299D100D218C65ACA30FDA67E02ED249F" Packaging="external" SourcePath="Installers\1b384a977dd4316f990507d55fe9e3ba.cab" />
+<Payload Id="payB01E952DDDA19E6F634CCF7EE567C1CD" FilePath="Installers\37ba0481e834ae28c531e31a2736eb66.cab" FileSize="27511" Hash="1E395739DBA6031B4E1AAFB1B2AC232D8F89AA04" Packaging="external" SourcePath="Installers\37ba0481e834ae28c531e31a2736eb66.cab" />
+<Payload Id="pay4B9C75672B2EEFB989BD909B9DD4FCEE" FilePath="Installers\3b9ed4aab52886c38140ebfe231799eb.cab" FileSize="41352" Hash="9800821F8588AD6D2DB8858DA9687EC36452DEA0" Packaging="external" SourcePath="Installers\3b9ed4aab52886c38140ebfe231799eb.cab" />
+<Payload Id="pay0F9F65BFFC2DF89E8C7F6F4AD339CDD2" FilePath="Installers\4040fdfbcd753e650c0e3a5bce3ed7a2.cab" FileSize="344532" Hash="64EF0024C75BD877D2731D73BB2DE53E6893A01E" Packaging="external" SourcePath="Installers\4040fdfbcd753e650c0e3a5bce3ed7a2.cab" />
+<Payload Id="payA8A044109C649FDB36F4963AC9C05A12" FilePath="Installers\4e2880e9270705945b3bd734381beb83.cab" FileSize="870395" Hash="0FF6E80B5B70955ADD47DDA95FCBA16A73DADCE3" Packaging="external" SourcePath="Installers\4e2880e9270705945b3bd734381beb83.cab" />
+<Payload Id="pay9971BC6278CE1F278F7EB7ECF87CC960" FilePath="Installers\c060e5299391650c67b408ceeee1df19.cab" FileSize="62689" Hash="394E166DBE42C03EF628856447ABF853FD47C4D2" Packaging="external" SourcePath="Installers\c060e5299391650c67b408ceeee1df19.cab" />
+<Payload Id="pay1F5828D848A1B2781B3EC72E395F4431" FilePath="Installers\c39fa728b0878d922584355f58a0a430.cab" FileSize="15815" Hash="4017EDAA0C3CF4BA3C950B1C843D8B2866E37FD3" Packaging="external" SourcePath="Installers\c39fa728b0878d922584355f58a0a430.cab" />
+<Payload Id="payD15A7077FF1489873F9B93E7B92A86CE" FilePath="Installers\db2ba4299042feab893de074fc3d7a80.cab" FileSize="9920557" Hash="4567EDE6EAA253AF7BA954722F5066DC7353D538" Packaging="external" SourcePath="Installers\db2ba4299042feab893de074fc3d7a80.cab" />
+<Payload Id="pay71C462F5B12889FC6DCAD998299C6DA4" FilePath="Installers\e10ccfe7dc7b8820c41c82442baf06a5.cab" FileSize="1247855" Hash="B7FD84B51C099DA7D576F3B84C449707141FCFF5" Packaging="external" SourcePath="Installers\e10ccfe7dc7b8820c41c82442baf06a5.cab" />
+<Payload Id="pay4BCE8484F2C476797C30A29AA82E7009" FilePath="Installers\efbfda9cedfdb8edf40e90ff75bdf53f.cab" FileSize="6628242" Hash="263CE9E58932D830BAF859B548E87138640FCD11" Packaging="external" SourcePath="Installers\efbfda9cedfdb8edf40e90ff75bdf53f.cab" />
+<Payload Id="payCAA1EFE71CAA93B2B02F9E2EC2D9E78B" FilePath="Installers\f08cfb415fa199bfc5380baffecff500.cab" FileSize="1369764" Hash="5538664CBCF4BBCDF7BA08C9837E239430648298" Packaging="external" SourcePath="Installers\f08cfb415fa199bfc5380baffecff500.cab" />
+<Payload Id="package_WindowsDriverKitARMAdditionsDev12x86_en_us" FilePath="Installers\Windows Driver Kit ARM Additions Dev12-x86_en-us.msi" FileSize="466944" Hash="18E917C04201DB97B68EA910BC182F607BFB814A" Packaging="external" SourcePath="Installers\Windows Driver Kit ARM Additions Dev12-x86_en-us.msi" />
+<Payload Id="pay4244BEC2B89EFBFF7F694DC52749226D" FilePath="Installers\3d4a94a0f366e2e11d720e19f9bd3d3c.cab" FileSize="18362" Hash="98586E38043F7FC04DF663AC492FC1F8FEB39269" Packaging="external" SourcePath="Installers\3d4a94a0f366e2e11d720e19f9bd3d3c.cab" />
+<Payload Id="package_WindowsDriverKitARMAdditionsMSBuildContentDev12x86_en_us" FilePath="Installers\Windows Driver Kit ARM Additions MSBuild Content Dev12-x86_en-us.msi" FileSize="299008" Hash="15DB564CD230CF44D5EDD2F8FC0E075A2B82E45D" Packaging="external" SourcePath="Installers\Windows Driver Kit ARM Additions MSBuild Content Dev12-x86_en-us.msi" />
+<Payload Id="pay9E8B9E9956CB3959E58CFB824471B649" FilePath="Redistributable\vc_compilercore\vc_CompilerCore.cab" FileSize="6536776" Hash="EC6ADA829E9AD00245DDC3B53E4CCBD532B0CD60" Packaging="external" SourcePath="Redistributable\vc_compilercore\vc_CompilerCore.cab" />
+<Payload Id="package_Microsoft_VC_2013_Compilers" FilePath="Redistributable\vc_compilercore\vc_compilercore.msi" FileSize="155648" Hash="47C1CEA124504FDA24686ECC731F943BB2040E6F" Packaging="external" SourcePath="Redistributable\vc_compilercore\vc_compilercore.msi" />
+<Payload Id="pay94C9B4B55A4CA5E49E887C0EB0072CD2" FilePath="Redistributable\vc_librarycore\cab1.cab" FileSize="7349048" Hash="36E4168F0639D9F8E544AF1EF6BDE84FDD098774" Packaging="external" SourcePath="Redistributable\vc_librarycore\cab1.cab" />
+<Payload Id="payF4217138C44E758447CB2D96423617A7" FilePath="Redistributable\vc_librarycore\cab2.cab" FileSize="3451460" Hash="17DA573BEC986DDFBD50D16A55D038714B244247" Packaging="external" SourcePath="Redistributable\vc_librarycore\cab2.cab" />
+<Payload Id="package_Microsoft_VC_2013_Core_Libraries" FilePath="Redistributable\vc_librarycore\vc_librarycore.msi" FileSize="81920" Hash="DF5F5DF7E8CF300491D2697D478DE0A7CF9C1299" Packaging="external" SourcePath="Redistributable\vc_librarycore\vc_librarycore.msi" />
+<Payload Id="payBDBF1B3F97F2B6D6FC4FF6B3A4306EAC" FilePath="Redistributable\vc_libraryDesktop_arm\cab1.cab" FileSize="42673979" Hash="79BA1FB36AA5C886B9DD575EFBF9F0C55F1C32BC" Packaging="external" SourcePath="Redistributable\vc_libraryDesktop_arm\cab1.cab" />
+<Payload Id="pay909B27EA91E1BEAFA1F07DDF8657C282" FilePath="Redistributable\vc_libraryDesktop_arm\cab2.cab" FileSize="8611145" Hash="FC5B5F4FE9F1D52DDE700320E2E6D20252190835" Packaging="external" SourcePath="Redistributable\vc_libraryDesktop_arm\cab2.cab" />
+<Payload Id="package_Microsoft_VC_ARM_Libraries" FilePath="Redistributable\vc_libraryDesktop_arm\vc_libraryDesktopARM.msi" FileSize="126976" Hash="9383EA07B7E69E76A150872FFD42A5C8AC0E8B22" Packaging="external" SourcePath="Redistributable\vc_libraryDesktop_arm\vc_libraryDesktopARM.msi" />
+<Payload Id="payDD9B0236DBD2CEEA799366B1B98476E9" FilePath="Installers\45821d1fcb842bff411f5f2f8c1d4106.cab" FileSize="15067" Hash="633AC006D03E4E68EDAA79DFCB6D818593581E27" Packaging="external" SourcePath="Installers\45821d1fcb842bff411f5f2f8c1d4106.cab" />
+<Payload Id="pay9DF5F5FB7BFDFBB8E6E78A480F3E956F" FilePath="Installers\9bfca1e044c38e04afe2363d3db899c8.cab" FileSize="915109" Hash="F5A234F0837152E2CE25FDD1B733BC345FEDBC1F" Packaging="external" SourcePath="Installers\9bfca1e044c38e04afe2363d3db899c8.cab" />
+<Payload Id="pay52848E323FE07C7AA7D4BB401598CF78" FilePath="Installers\f00fdb655caace4722067919e5e769e2.cab" FileSize="14622" Hash="35170200BB5DC91727BCB549D732FE2AF88485A1" Packaging="external" SourcePath="Installers\f00fdb655caace4722067919e5e769e2.cab" />
+<Payload Id="package_SDKARMAdditionsx86_en_us" FilePath="Installers\SDK ARM Additions-x86_en-us.msi" FileSize="376832" Hash="EACBCEBB27AAAAAE06DDBF0C4B98942286B5E582" Packaging="external" SourcePath="Installers\SDK ARM Additions-x86_en-us.msi" />
+<Payload Id="package_SDKARMRedistributablesx86_en_us" FilePath="Installers\SDK ARM Redistributables-x86_en-us.msi" FileSize="294912" Hash="7FD34A9030872BE5A15220439651D9DA6E657473" Packaging="external" SourcePath="Installers\SDK ARM Redistributables-x86_en-us.msi" />
+<Payload Id="package_SDKDebuggersARMx86_en_us" FilePath="Installers\SDK Debuggers ARM-x86_en-us.msi" FileSize="294912" Hash="60955E7513D94DCE2BEFD29154FA5FA24FDD7C37" Packaging="external" SourcePath="Installers\SDK Debuggers ARM-x86_en-us.msi" />
+<Payload Id="pay17F042ADF1D4B5CACA4350A6F301428E" FilePath="Installers\715b4130577c6dcc8cd1379461938411.cab" FileSize="31997" Hash="06ADE528F6F995F68C66FD7CC756324617B11D05" Packaging="external" SourcePath="Installers\715b4130577c6dcc8cd1379461938411.cab" />
+<Payload Id="package_SDKARMAdditionsEULAx86_en_us" FilePath="Installers\SDK ARM Additions EULA-x86_en-us.msi" FileSize="294912" Hash="695B0194CFAA08D55E9163143D444D5A550A2EEC" Packaging="external" SourcePath="Installers\SDK ARM Additions EULA-x86_en-us.msi" />
+<Payload Id="package_.Net_Framework_4.5" FilePath="Installers\dotNetFx45_Full_x86_x64.exe" FileSize="50352408" Hash="B2FF712CA0947040CA0B8E9BD7436A3C3524BB5D" DownloadUrl="http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe" Packaging="external" SourcePath="Installers\dotNetFx45_Full_x86_x64.exe" />
+<Payload Id="package_KitsConfigurationInstallerx86_en_us" FilePath="Installers\Kits Configuration Installer-x86_en-us.msi" FileSize="290816" Hash="3F4AEACE4354EA8A8443734100E3107AC3F1D63B" Packaging="external" SourcePath="Installers\Kits Configuration Installer-x86_en-us.msi" />
+<Payload Id="payEA2238393C31FF3C9309CA77650163DC" FilePath="Installers\2c1817d3f3f33cd01376c5ec441cc636.cab" FileSize="277472" Hash="2A65E98083D2538D38E01AC9F725EB8BE1770144" Packaging="external" SourcePath="Installers\2c1817d3f3f33cd01376c5ec441cc636.cab" />
+<Payload Id="pay2C1C671EBD24A09A30186BAA6F80D14D" FilePath="Installers\a74408a87a51829b89e5282e73974d74.cab" FileSize="214348" Hash="265869EF926D15989B470A57D1946ED0014E951E" Packaging="external" SourcePath="Installers\a74408a87a51829b89e5282e73974d74.cab" />
+<Payload Id="pay265B80C54E17459CA198A797A61089CB" FilePath="Installers\ab8c11616091812d6c7137e366ba1d8d.cab" FileSize="310137" Hash="D341FA2DB7E488986A468227C5B97E2D06D95A2A" Packaging="external" SourcePath="Installers\ab8c11616091812d6c7137e366ba1d8d.cab" />
+<Payload Id="payDA20069FEEC944765A6E51DA1B5764BF" FilePath="Installers\77db8ab55a0b236db83c55ced6e8a9a3.cab" FileSize="19238981" Hash="9CE87737F133555CC54DA44172CB2FFEA7EE7F60" Packaging="external" SourcePath="Installers\77db8ab55a0b236db83c55ced6e8a9a3.cab" />
+<Payload Id="pay8E0C12030434EDC2EC5EC3F0BC7B7851" FilePath="Installers\921968b1c32e680f338247ac68950f5a.cab" FileSize="36013" Hash="79E3E2473338A712755A991222DD70BB8CB6452F" Packaging="external" SourcePath="Installers\921968b1c32e680f338247ac68950f5a.cab" />
+<Payload Id="f60110807DD7126885F6DDFC8D66C93C8" FilePath="Installers\X86 Debuggers And Tools-x86_en-us.msi" FileSize="18485248" Hash="42E5E2E20084BB0B5D5195914ACCF8BA39BC34BF" Packaging="external" SourcePath="Installers\X86 Debuggers And Tools-x86_en-us.msi" />
+<Payload Id="f445E68D8EEDA043C473990BA5AC5E768" FilePath="Installers\X64 Debuggers And Tools-x64_en-us.msi" FileSize="19591168" Hash="C71C60987A8C3AE440E88BDE690CAE3291B51152" Packaging="external" SourcePath="Installers\X64 Debuggers And Tools-x64_en-us.msi" />
+<Payload Id="fE27414AC5A705DA5BBA08870CAB83F24" FilePath="Installers\Windows Driver Testing Framework (WDTF) Runtime Libraries-x86_en-us.msi" FileSize="323584" Hash="3249C65970A950B825BA191D59AE560B3D8940BF" Packaging="external" SourcePath="Installers\Windows Driver Testing Framework (WDTF) Runtime Libraries-x86_en-us.msi" />
+<Payload Id="fCD388E1B2925F94DC9713A930AB0F120" FilePath="Installers\27c11849eb77f4624304607082112d90.cab" FileSize="21051" Hash="4D2695C7073ADCD1083E29D0CEF6252B385092DB" Packaging="external" SourcePath="Installers\27c11849eb77f4624304607082112d90.cab" />
+<Payload Id="fDA850EB6AC0F3238E8C7C3E4CBBA7339" FilePath="Installers\c5bcf010acfc98ac434053ee50af27df.cab" FileSize="2806409" Hash="E5F30A3258E1D0CB71B9D7FA507D4A68BC6DCE85" Packaging="external" SourcePath="Installers\c5bcf010acfc98ac434053ee50af27df.cab" />
+<Payload Id="f0FA63A6DA11A0643ABA5CAD6111ACCF6" FilePath="Installers\Windows Driver Testing Framework (WDTF) Runtime Libraries-x64_en-us.msi" FileSize="323584" Hash="4913D2C7AD6A6BC576DA09F5D85818BA7F3F254F" Packaging="external" SourcePath="Installers\Windows Driver Testing Framework (WDTF) Runtime Libraries-x64_en-us.msi" />
+<Payload Id="f2431AB2D8192198FC2ECDA718124458A" FilePath="Installers\fb58ed648d51337ee1941d2053a7bdb5.cab" FileSize="21098" Hash="B2DDE975351012F85BD1172D210B29E9EF949C0B" Packaging="external" SourcePath="Installers\fb58ed648d51337ee1941d2053a7bdb5.cab" />
+<Payload Id="fEAC4C342A527A64E8D48510C3DFFD13F" FilePath="Installers\52909056ae20065680e3c9283d5a4a21.cab" FileSize="3162766" Hash="D172FE47701611039EED411E102E6B2DB911EC1C" Packaging="external" SourcePath="Installers\52909056ae20065680e3c9283d5a4a21.cab" />
+<Payload Id="fCEF6E76AFD5C7B3063F1FF645B6F83D3" FilePath="Installers\Test Authoring and Execution Framework x86-x86_en-us.msi" FileSize="311296" Hash="6993D623A4047B4CC26E6DECF4A1EB696329F487" Packaging="external" SourcePath="Installers\Test Authoring and Execution Framework x86-x86_en-us.msi" />
+<Payload Id="f18F324340704F4F6C28ACC31B322CE2D" FilePath="Installers\Test Authoring and Execution Framework x64-x64_en-us.msi" FileSize="311296" Hash="FEBFD6BA3741E3C43463A4330453289FF27705CC" Packaging="external" SourcePath="Installers\Test Authoring and Execution Framework x64-x64_en-us.msi" />
+<Payload Id="f4FA4DF8E7C78D2B01C1C8B88C5AB8CA3" FilePath="Installers\WDK Test Target Setup x86-x86_en-us.msi" FileSize="331776" Hash="8317CEAEE24396962A1B1F5F74138F3DBAF239D6" Packaging="external" SourcePath="Installers\WDK Test Target Setup x86-x86_en-us.msi" />
+<Payload Id="fC42EA38C12959C1B89011C407136AEA2" FilePath="Installers\WDK Test Target Setup x64-x64_en-us.msi" FileSize="335872" Hash="CFE9D9B5EE5FD1BE52B213957C6026C6EE0FBE91" Packaging="external" SourcePath="Installers\WDK Test Target Setup x64-x64_en-us.msi" />
+<Payload Id="fB26BCBF960D3F738D86BF2AFAED213C7" FilePath="Installers\WDK Test Target Setup ARM-arm_en-us.msi" FileSize="348160" Hash="EE85B660F91A06EFA903FD0D56F126C4ACE778A5" Packaging="external" SourcePath="Installers\WDK Test Target Setup ARM-arm_en-us.msi" />
+<Payload Id="fFC46346EB108ADD86CA39F20ED68D228" FilePath="Installers\Windows Driver Testing Framework (WDTF) Runtime Libraries-arm_en-us.msi" FileSize="487424" Hash="3EB50C03D020142BAC28A8EE0A64410D093D5F84" Packaging="external" SourcePath="Installers\Windows Driver Testing Framework (WDTF) Runtime Libraries-arm_en-us.msi" />
+<Payload Id="f5724DE689E36A687B0BA8E905BB7B43D" FilePath="Installers\f842e126ae8d67f090f740052e7a10a4.cab" FileSize="23729" Hash="1252C9922929E7EF5E25D3967E4158C0E705907B" Packaging="external" SourcePath="Installers\f842e126ae8d67f090f740052e7a10a4.cab" />
+<Payload Id="f886648C864BFC1B00E5C551293A6B7BE" FilePath="Installers\f9976a73f62f4a8e2a372960dbcbd52b.cab" FileSize="3069908" Hash="03C7B70FA0158D429E7CC8054F0860084F2DAE9F" Packaging="external" SourcePath="Installers\f9976a73f62f4a8e2a372960dbcbd52b.cab" />
+<Payload Id="fE701C3858424E7CBBFDAD567484BB596" FilePath="Installers\Test Authoring and Execution Framework ARM-arm_en-us.msi" FileSize="319488" Hash="C2AF290F2D824D3467441EB03B0DB29DB2534AE2" Packaging="external" SourcePath="Installers\Test Authoring and Execution Framework ARM-arm_en-us.msi" />
+<Payload Id="f1A13F927A34B63D95F79E59278B4185C" FilePath="Installers\4189492b8ae6868ee71aab72452c67db.cab" FileSize="1663375" Hash="15534B6AB3BE274E329E8E97C3E76FD7E16BBD42" Packaging="external" SourcePath="Installers\4189492b8ae6868ee71aab72452c67db.cab" />
+<Payload Id="f7B1B479C33D04746C4DD93A8DDED9677" FilePath="Installers\38c87f68953407fcd97b02145058effe.cab" FileSize="2366650" Hash="B40CECD1C5A32E7A06083C11556CFB0342E4B2B6" Packaging="external" SourcePath="Installers\38c87f68953407fcd97b02145058effe.cab" />
+<Payload Id="f5D7273BF9E08EECE3DBA3801664D4E21" FilePath="Installers\Arm Debuggers And Tools-arm_en-us.msi" FileSize="17813504" Hash="24E9E1AACFF5B739D753BA1E4E41236504E503DA" Packaging="external" SourcePath="Installers\Arm Debuggers And Tools-arm_en-us.msi" />
+<Payload Id="f0676D6C8F5659DF66E91E603ADEE10CA" FilePath="Installers\Windows Software Development Kit DirectX ARM Remote-arm_en-us.msi" FileSize="303104" Hash="C17E33F505DAB5D0DE4A09953CE8DCEBE25B579B" Packaging="external" SourcePath="Installers\Windows Software Development Kit DirectX ARM Remote-arm_en-us.msi" />
+<Payload Id="f64F80BA9CDEFF243FC8E3ADA3FD960C1" FilePath="Installers\2cd67f5657d2cee1a106c4fdab506e58.cab" FileSize="545260" Hash="419F3A33050F60AA6C6F3994019D6410EE7B0CDB" Packaging="external" SourcePath="Installers\2cd67f5657d2cee1a106c4fdab506e58.cab" />
+<Payload Id="fBEA0D85C8A0DCB167E0673294A9345ED" FilePath="Installers\Application Verifier arm External Package-arm_en-us.msi" FileSize="1978368" Hash="DAB91F8AAD65D926264502B3ACEB5BD7E88639C4" Packaging="external" SourcePath="Installers\Application Verifier arm External Package-arm_en-us.msi" />
+<Payload Id="f65BD881841F7E8B9DDEF174CA471036F" FilePath="Installers\Arm Debuggers And Tools-arm_en-us.msi" FileSize="17813504" Hash="24E9E1AACFF5B739D753BA1E4E41236504E503DA" Packaging="external" SourcePath="Installers\Arm Debuggers And Tools-arm_en-us.msi" />
+<RollbackBoundary Id="WixDefaultBoundary" Vital="yes" />
+<Registration Id="{aba88724-37eb-4f03-b83b-45199c5a7cf5}" ExecutableName="wdksetup.exe" PerMachine="yes" Tag="" Version="8.100.26846" ProviderKey="Microsoft.Windows.DriverKit,v8.1">
+<Arp Register="yes" DisplayName="Windows Driver Kit for Windows 8.1" DisplayVersion="8.100.26846" Publisher="Microsoft Corporation" />
+</Registration>
+<Chain DisableSystemRestore="yes">
+<MsiPackage Id="package_WindowsDebuggingVSIntegrationDev12x86_en_us" Cache="yes" CacheId="{96C0E1F9-960D-B927-8A62-90B39E59D0CA}v8.100.26846" InstallSize="1368212" Size="724617" PerMachine="yes" Permanent="no" Vital="yes" RollbackBoundaryForward="WixDefaultBoundary" LogPathVariable="WixBundleLog_package_WindowsDebuggingVSIntegrationDev12x86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_WindowsDebuggingVSIntegrationDev12x86_en_us" ProductCode="{96C0E1F9-960D-B927-8A62-90B39E59D0CA}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{96C0E1F9-960D-B927-8A62-90B39E59D0CA}" Imported="yes" />
+<RelatedPackage Id="{FDF61DD7-67E6-E545-1266-3BDA5DE636A0}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{FDF61DD7-67E6-E545-1266-3BDA5DE636A0}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{FDF61DD7-67E6-E545-1266-3BDA5DE636A0}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_WindowsDebuggingVSIntegrationDev12x86_en_us" />
+<PayloadRef Id="pay867C14C04262152841173685F0E711B0" />
+<PayloadRef Id="payF179DC1C4866F63F7BB9057BF1AD363D" />
+</MsiPackage>
+<MsiPackage Id="package_WindowsDebuggingWDKIntegrationx86_en_us" Cache="yes" CacheId="{B1FD2289-F3E5-E148-18EC-A9E0FAE773A9}v8.100.26846" InstallSize="339749" Size="475268" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_WindowsDebuggingWDKIntegrationx86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_WindowsDebuggingWDKIntegrationx86_en_us" ProductCode="{B1FD2289-F3E5-E148-18EC-A9E0FAE773A9}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{B1FD2289-F3E5-E148-18EC-A9E0FAE773A9}" Imported="yes" />
+<RelatedPackage Id="{AFBCB0FA-EF38-4B5A-7B7F-5194C124E908}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{AFBCB0FA-EF38-4B5A-7B7F-5194C124E908}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{AFBCB0FA-EF38-4B5A-7B7F-5194C124E908}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_WindowsDebuggingWDKIntegrationx86_en_us" />
+<PayloadRef Id="pay5A5C80FC2D1F347B52114A98BE1D90D2" />
+<PayloadRef Id="payA22696F2D43F1D9684B69415891F8876" />
+</MsiPackage>
+<MsiPackage Id="package_WindowsDriverKitx86_en_us" Cache="yes" CacheId="{ABD7052F-A64A-2E71-57E2-1E7BEB9D298D}v8.100.26846" InstallSize="556811205" Size="259267971" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_WindowsDriverKitx86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_WindowsDriverKitx86_en_us" ProductCode="{ABD7052F-A64A-2E71-57E2-1E7BEB9D298D}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{ABD7052F-A64A-2E71-57E2-1E7BEB9D298D}" Imported="yes" />
+<RelatedPackage Id="{FA36C976-6EC9-A76E-5BEF-5F34599C7BE6}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{FA36C976-6EC9-A76E-5BEF-5F34599C7BE6}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{FA36C976-6EC9-A76E-5BEF-5F34599C7BE6}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_WindowsDriverKitx86_en_us" />
+<PayloadRef Id="pay00B6FB9E40D7E33B78E5749B479C1E1E" />
+<PayloadRef Id="pay0714D5A60AA3B25157BF8613BC643E96" />
+<PayloadRef Id="pay0822F60C6F7F82AFEC31425727DB6111" />
+<PayloadRef Id="pay0AB7F271DB5BB675B775981C2682B23B" />
+<PayloadRef Id="pay0F2064B666A26E3EE798AC1AC0E08A81" />
+<PayloadRef Id="pay15902DBAF9EA1B2EB7612A569ABEEF90" />
+<PayloadRef Id="pay1896699029B3E17EFA5D5CDFF18068EF" />
+<PayloadRef Id="pay1A942A71EDCBAD6CF5364C7CA426E571" />
+<PayloadRef Id="pay1C16C385FB53568E4BFFE571BF3B6559" />
+<PayloadRef Id="pay1EF6980CB004651A5F999A3D7C90219D" />
+<PayloadRef Id="pay1F59B8816326FAF5A08E6C152CE5D178" />
+<PayloadRef Id="pay2166433B7324D77981A70FDF4D282F07" />
+<PayloadRef Id="pay25ACEBC72D80B4B0B6AF0B6B83C0EEBF" />
+<PayloadRef Id="pay25E17EC7232A7DE09106090ADF1DD35B" />
+<PayloadRef Id="pay265B80C54E17459CA198A797A61089CB" />
+<PayloadRef Id="pay2C1C671EBD24A09A30186BAA6F80D14D" />
+<PayloadRef Id="pay305D658F2B373DD263E8761C69899311" />
+<PayloadRef Id="pay315E34F2FA06D35DF536E0D6BC601BDC" />
+<PayloadRef Id="pay33FC80D97C8421DC40163674E70930EB" />
+<PayloadRef Id="pay35200FEB58691D586BD639165936ADB5" />
+<PayloadRef Id="pay37B15C6A505267E1F767F2AB4DFBD400" />
+<PayloadRef Id="pay3A45B0D6CA4940DF12AD1239D5C2CACF" />
+<PayloadRef Id="pay3BA9A717D1E330A2863AB81468875BBE" />
+<PayloadRef Id="pay413AA4B5F7815DC73D90C6CADC7C4B94" />
+<PayloadRef Id="pay41BA9A0B5A2F81238E2FE09BDB3BCDEA" />
+<PayloadRef Id="pay47A52138262AD216DD2263F2994074C1" />
+<PayloadRef Id="pay483CFF806D2BD38C55F4288A92BB53C6" />
+<PayloadRef Id="pay5A0B11321199BE5D537BCB6E181BF11B" />
+<PayloadRef Id="pay65B117DB0F66764D5213D92D045E1833" />
+<PayloadRef Id="pay6CEFE6D9651E381FD2D0315A8A8A736A" />
+<PayloadRef Id="pay7803D1134343E5851BE7ADF984FB5783" />
+<PayloadRef Id="pay87C19FC483099180E003010A82DB3270" />
+<PayloadRef Id="pay8B137D69E0A1E866F61282FD24094A9E" />
+<PayloadRef Id="pay8D70C9DE20CF153E7518EF9E9676384D" />
+<PayloadRef Id="pay8F4FE7B57297218DCF25F879A2FFAE5E" />
+<PayloadRef Id="pay93073DD9A41DBDF342D0CB03C9208214" />
+<PayloadRef Id="pay95A077006ABD2D8D71AF9A3AF118B2FF" />
+<PayloadRef Id="pay9A6FCE06C8A6997974204E9240A5A947" />
+<PayloadRef Id="pay9DA579FED7FDD9B319754C7FB9826EA3" />
+<PayloadRef Id="payA2882E2542D75F2825515D4B1A71FBE7" />
+<PayloadRef Id="payA6BD476D34F6ECABD65A291F47F6A744" />
+<PayloadRef Id="payB0ACF328166557DE7597BB4FB1EC02A0" />
+<PayloadRef Id="payB16D603968FD4C096082DA738C755913" />
+<PayloadRef Id="payB5FB607EA2144B6FDF1C1C05E6745B4C" />
+<PayloadRef Id="payB695D6C223CB2DF67E7E9E61F7709AAD" />
+<PayloadRef Id="payB9210BFEB00366571D8B9BFD5B91871D" />
+<PayloadRef Id="payBE956D9DC5B716C0EC859ED942842D59" />
+<PayloadRef Id="payBE9CD2F68C0124B40EA0E8CC41256278" />
+<PayloadRef Id="payBFCEFC68DDD7C29D389E313D935AEA35" />
+<PayloadRef Id="payC3B28AD5F9233CF52787CA4C83BD75A3" />
+<PayloadRef Id="payCA7CE78929B4F15E201AEBBEF70E8839" />
+<PayloadRef Id="payCF4A421AABE48DAFD29991EF896134AC" />
+<PayloadRef Id="payD3BFB3EE575F4C3AFF293248356EC796" />
+<PayloadRef Id="payD8FBBC263AAB1F7326F14A8434583425" />
+<PayloadRef Id="payDA16349AA7EC4F09B738DBE7B1EE375A" />
+<PayloadRef Id="payDCCA00F33526B0D3513B8D93EBA852BE" />
+<PayloadRef Id="payDD4C28BFB3DEABF51F64ADC5F6B56F29" />
+<PayloadRef Id="payDE86A2DC0D1CABFCBEA465C3E5D655B2" />
+<PayloadRef Id="payE86A281CC2D60A7AEAD7DF739015FBEF" />
+<PayloadRef Id="payEA2238393C31FF3C9309CA77650163DC" />
+<PayloadRef Id="payEBB740F000D6E30B6C258ED779D20B84" />
+<PayloadRef Id="payEC9EC59CCF712FDE160BE5A7B2C01CF4" />
+<PayloadRef Id="payEF7B8187820E9082F15C6EB7D0E06E00" />
+<PayloadRef Id="payF2FDB9A21DFD718E0BEC3F1A9CE43397" />
+<PayloadRef Id="payFC8A9460268C4CF70FA7E702BE377EC2" />
+<PayloadRef Id="payFCAC09FC5221E89197FF1DBAB0F9484E" />
+<PayloadRef Id="payFD184788733F2765EEF4D1FD1623872F" />
+<PayloadRef Id="f60110807DD7126885F6DDFC8D66C93C8" />
+<PayloadRef Id="f445E68D8EEDA043C473990BA5AC5E768" />
+<PayloadRef Id="fE27414AC5A705DA5BBA08870CAB83F24" />
+<PayloadRef Id="fCD388E1B2925F94DC9713A930AB0F120" />
+<PayloadRef Id="fDA850EB6AC0F3238E8C7C3E4CBBA7339" />
+<PayloadRef Id="f0FA63A6DA11A0643ABA5CAD6111ACCF6" />
+<PayloadRef Id="f2431AB2D8192198FC2ECDA718124458A" />
+<PayloadRef Id="fEAC4C342A527A64E8D48510C3DFFD13F" />
+<PayloadRef Id="fCEF6E76AFD5C7B3063F1FF645B6F83D3" />
+<PayloadRef Id="f18F324340704F4F6C28ACC31B322CE2D" />
+<PayloadRef Id="f4FA4DF8E7C78D2B01C1C8B88C5AB8CA3" />
+<PayloadRef Id="fC42EA38C12959C1B89011C407136AEA2" />
+<PayloadRef Id="fB26BCBF960D3F738D86BF2AFAED213C7" />
+</MsiPackage>
+<MsiPackage Id="package_WindowsDriverKitVisualStudioDev12Contentx86_en_us" Cache="yes" CacheId="{3E0C5AE9-72F9-27E0-E332-06566DB8BF5A}v8.100.26846" InstallSize="5150248" Size="3148021" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_WindowsDriverKitVisualStudioDev12Contentx86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_WindowsDriverKitVisualStudioDev12Contentx86_en_us" ProductCode="{3E0C5AE9-72F9-27E0-E332-06566DB8BF5A}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{3E0C5AE9-72F9-27E0-E332-06566DB8BF5A}" Imported="yes" />
+<RelatedPackage Id="{A2DC5AF5-64F2-1E58-FE9A-6A4068707E81}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{A2DC5AF5-64F2-1E58-FE9A-6A4068707E81}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{A2DC5AF5-64F2-1E58-FE9A-6A4068707E81}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_WindowsDriverKitVisualStudioDev12Contentx86_en_us" />
+<PayloadRef Id="pay02F0795CE42C1BF9DD4ABE9E1D965246" />
+<PayloadRef Id="pay0D4FB750101EF5F9D84F9A797832BF9D" />
+<PayloadRef Id="pay144D2E2CF67015FDE8EDD14CEF82BECA" />
+<PayloadRef Id="pay3DCFC8D4729D469DA99CA18AE3C3D30A" />
+<PayloadRef Id="pay68BD06872FF062C77B977D09BCFA7FB4" />
+<PayloadRef Id="payC3DC9572925F4A0E24418540F04C6A5D" />
+<PayloadRef Id="payDAF052C1E53F5A7572184CCF9541BB05" />
+<PayloadRef Id="payDF4BF59CE5CE202F493113E47C42A62F" />
+<PayloadRef Id="payF93862623A3D5B105592872D00BCB011" />
+</MsiPackage>
+<MsiPackage Id="package_WindowsDriverKitMSBuildContentDev12x86_en_us" Cache="yes" CacheId="{DEC04130-35D0-BEAF-2EC4-D9A65C96C0AC}v8.100.26846" InstallSize="58483" Size="326794" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_WindowsDriverKitMSBuildContentDev12x86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_WindowsDriverKitMSBuildContentDev12x86_en_us" ProductCode="{DEC04130-35D0-BEAF-2EC4-D9A65C96C0AC}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{DEC04130-35D0-BEAF-2EC4-D9A65C96C0AC}" Imported="yes" />
+<RelatedPackage Id="{DF0EA8E1-B492-BABC-133C-D2C1721FB85E}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{DF0EA8E1-B492-BABC-133C-D2C1721FB85E}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{DF0EA8E1-B492-BABC-133C-D2C1721FB85E}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_WindowsDriverKitMSBuildContentDev12x86_en_us" />
+<PayloadRef Id="pay9147555EADC768FEC646C43BB65DC050" />
+</MsiPackage>
+<MsiPackage Id="package_WindowsDriverKitARMAdditionsDev12x86_en_us" Cache="yes" CacheId="{DEB2EE34-50D3-2780-B418-78786E760CB1}v8.100.26846" InstallSize="178851022" Size="66847223" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_WindowsDriverKitARMAdditionsDev12x86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_WindowsDriverKitARMAdditionsDev12x86_en_us" ProductCode="{DEB2EE34-50D3-2780-B418-78786E760CB1}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{DEB2EE34-50D3-2780-B418-78786E760CB1}" Imported="yes" />
+<RelatedPackage Id="{3292C849-3AC2-2DFF-40E6-5343441DCF1C}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{3292C849-3AC2-2DFF-40E6-5343441DCF1C}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{3292C849-3AC2-2DFF-40E6-5343441DCF1C}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_WindowsDriverKitARMAdditionsDev12x86_en_us" />
+<PayloadRef Id="pay0F9F65BFFC2DF89E8C7F6F4AD339CDD2" />
+<PayloadRef Id="pay1F5828D848A1B2781B3EC72E395F4431" />
+<PayloadRef Id="pay265B80C54E17459CA198A797A61089CB" />
+<PayloadRef Id="pay2C1C671EBD24A09A30186BAA6F80D14D" />
+<PayloadRef Id="pay4B9C75672B2EEFB989BD909B9DD4FCEE" />
+<PayloadRef Id="pay4BCE8484F2C476797C30A29AA82E7009" />
+<PayloadRef Id="pay5F02CDC89FB4EF18727DA316D7A3731D" />
+<PayloadRef Id="pay71C462F5B12889FC6DCAD998299C6DA4" />
+<PayloadRef Id="pay8E0C12030434EDC2EC5EC3F0BC7B7851" />
+<PayloadRef Id="pay9971BC6278CE1F278F7EB7ECF87CC960" />
+<PayloadRef Id="payA8A044109C649FDB36F4963AC9C05A12" />
+<PayloadRef Id="payB01E952DDDA19E6F634CCF7EE567C1CD" />
+<PayloadRef Id="payCAA1EFE71CAA93B2B02F9E2EC2D9E78B" />
+<PayloadRef Id="payD15A7077FF1489873F9B93E7B92A86CE" />
+<PayloadRef Id="payDA20069FEEC944765A6E51DA1B5764BF" />
+<PayloadRef Id="payDB6986C6FE866A2378F6E66DC4D95FC0" />
+<PayloadRef Id="payEA2238393C31FF3C9309CA77650163DC" />
+<PayloadRef Id="fFC46346EB108ADD86CA39F20ED68D228" />
+<PayloadRef Id="f5724DE689E36A687B0BA8E905BB7B43D" />
+<PayloadRef Id="f886648C864BFC1B00E5C551293A6B7BE" />
+<PayloadRef Id="fE701C3858424E7CBBFDAD567484BB596" />
+<PayloadRef Id="f1A13F927A34B63D95F79E59278B4185C" />
+<PayloadRef Id="f7B1B479C33D04746C4DD93A8DDED9677" />
+<PayloadRef Id="f5D7273BF9E08EECE3DBA3801664D4E21" />
+</MsiPackage>
+<MsiPackage Id="package_WindowsDriverKitARMAdditionsMSBuildContentDev12x86_en_us" Cache="yes" CacheId="{762E40D6-49D5-5951-CE73-94245978883C}v8.100.26846" InstallSize="33601" Size="317370" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_WindowsDriverKitARMAdditionsMSBuildContentDev12x86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_WindowsDriverKitARMAdditionsMSBuildContentDev12x86_en_us" ProductCode="{762E40D6-49D5-5951-CE73-94245978883C}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{762E40D6-49D5-5951-CE73-94245978883C}" Imported="yes" />
+<RelatedPackage Id="{53BE3398-695D-67C9-CF38-429E8B212202}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{53BE3398-695D-67C9-CF38-429E8B212202}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{53BE3398-695D-67C9-CF38-429E8B212202}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_WindowsDriverKitARMAdditionsMSBuildContentDev12x86_en_us" />
+<PayloadRef Id="pay4244BEC2B89EFBFF7F694DC52749226D" />
+</MsiPackage>
+<MsiPackage Id="package_Microsoft_VC_2013_Compilers" Cache="yes" CacheId="{DB5600F1-DE83-46DE-B162-5FC4400EAF5B}v12.0.21005" InstallSize="17788120" Size="6692424" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_Microsoft_VC_2013_Compilers" RollbackLogPathVariable="WixBundleRollbackLog_package_Microsoft_VC_2013_Compilers" ProductCode="{DB5600F1-DE83-46DE-B162-5FC4400EAF5B}" Language="1033" Version="12.0.21005" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="VSEXTUI" Value="1" />
+<Provides Key="Microsoft.VS.VcCompiler,v12" Imported="yes" />
+<RelatedPackage Id="{77D9510C-8E50-32AF-ABF2-D94E52B0961F}" MinVersion="12.0.21005" MinInclusive="no" OnlyDetect="yes" LangInclusive="yes">
+<Language Id="1033" />
+</RelatedPackage>
+<RelatedPackage Id="{77D9510C-8E50-32AF-ABF2-D94E52B0961F}" MinVersion="12.0.0" MinInclusive="yes" MaxVersion="12.0.21005" MaxInclusive="no" OnlyDetect="no" LangInclusive="yes">
+<Language Id="1033" />
+</RelatedPackage>
+<PayloadRef Id="package_Microsoft_VC_2013_Compilers" />
+<PayloadRef Id="pay9E8B9E9956CB3959E58CFB824471B649" />
+</MsiPackage>
+<MsiPackage Id="package_Microsoft_VC_2013_Core_Libraries" Cache="yes" CacheId="{D42681AA-BC16-3C84-949E-45F05D2AA997}v12.0.21005" InstallSize="71270419" Size="10882428" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_Microsoft_VC_2013_Core_Libraries" RollbackLogPathVariable="WixBundleRollbackLog_package_Microsoft_VC_2013_Core_Libraries" ProductCode="{D42681AA-BC16-3C84-949E-45F05D2AA997}" Language="1033" Version="12.0.21005" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="VSEXTUI" Value="1" />
+<Provides Key="{D42681AA-BC16-3C84-949E-45F05D2AA997}" Version="12.0.21005" DisplayName="Microsoft Visual C++ 2013 Core Libraries" />
+<RelatedPackage Id="{C8AFF0A1-AF41-3C57-8D3F-BBC80831A65B}" MinVersion="12.0.21005" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{C8AFF0A1-AF41-3C57-8D3F-BBC80831A65B}" MinVersion="12.0.0" MinInclusive="yes" MaxVersion="12.0.21005" MaxInclusive="no" OnlyDetect="no" />
+<PayloadRef Id="package_Microsoft_VC_2013_Core_Libraries" />
+<PayloadRef Id="pay94C9B4B55A4CA5E49E887C0EB0072CD2" />
+<PayloadRef Id="payF4217138C44E758447CB2D96423617A7" />
+</MsiPackage>
+<MsiPackage Id="package_Microsoft_VC_ARM_Libraries" Cache="yes" CacheId="{A8229A09-E570-412B-8D18-E78985673E34}v12.0.21005" InstallSize="247534100" Size="51412100" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_Microsoft_VC_ARM_Libraries" RollbackLogPathVariable="WixBundleRollbackLog_package_Microsoft_VC_ARM_Libraries" ProductCode="{A8229A09-E570-412B-8D18-E78985673E34}" Language="1033" Version="12.0.21005" DisplayInternalUI="no">
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="VSEXTUI" Value="1" />
+<Provides Key="Microsoft.VS.LibraryDesktop,v12,arm" Imported="yes" />
+<RelatedPackage Id="{2DBCB28F-2D11-3DFA-9F9C-1731CA2770AB}" MinVersion="12.0.21005" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{2DBCB28F-2D11-3DFA-9F9C-1731CA2770AB}" MinVersion="12.0.0" MinInclusive="yes" MaxVersion="12.0.21005" MaxInclusive="no" OnlyDetect="no" />
+<PayloadRef Id="package_Microsoft_VC_ARM_Libraries" />
+<PayloadRef Id="pay909B27EA91E1BEAFA1F07DDF8657C282" />
+<PayloadRef Id="payBDBF1B3F97F2B6D6FC4FF6B3A4306EAC" />
+</MsiPackage>
+<MsiPackage Id="package_SDKARMAdditionsx86_en_us" Cache="yes" CacheId="{61C9A3E6-04AB-866D-E1CA-39F757369483}v8.100.26846" InstallSize="82586673" Size="20596624" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_SDKARMAdditionsx86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_SDKARMAdditionsx86_en_us" ProductCode="{61C9A3E6-04AB-866D-E1CA-39F757369483}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{61C9A3E6-04AB-866D-E1CA-39F757369483}" Imported="yes" />
+<RelatedPackage Id="{96E735FC-FB34-DC9D-0464-6947973417F8}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{96E735FC-FB34-DC9D-0464-6947973417F8}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{96E735FC-FB34-DC9D-0464-6947973417F8}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_SDKARMAdditionsx86_en_us" />
+<PayloadRef Id="pay52848E323FE07C7AA7D4BB401598CF78" />
+<PayloadRef Id="pay8E0C12030434EDC2EC5EC3F0BC7B7851" />
+<PayloadRef Id="pay9DF5F5FB7BFDFBB8E6E78A480F3E956F" />
+<PayloadRef Id="payDA20069FEEC944765A6E51DA1B5764BF" />
+<PayloadRef Id="payDD9B0236DBD2CEEA799366B1B98476E9" />
+</MsiPackage>
+<MsiPackage Id="package_SDKARMRedistributablesx86_en_us" Cache="yes" CacheId="{A5596E7E-9360-A80C-08F9-6A0AA8658323}v8.100.26846" InstallSize="2826732" Size="3121644" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_SDKARMRedistributablesx86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_SDKARMRedistributablesx86_en_us" ProductCode="{A5596E7E-9360-A80C-08F9-6A0AA8658323}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{A5596E7E-9360-A80C-08F9-6A0AA8658323}" Imported="yes" />
+<RelatedPackage Id="{C2A649DD-3CAB-083C-50C0-2EFA8F1382B5}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{C2A649DD-3CAB-083C-50C0-2EFA8F1382B5}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{C2A649DD-3CAB-083C-50C0-2EFA8F1382B5}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_SDKARMRedistributablesx86_en_us" />
+<PayloadRef Id="f0676D6C8F5659DF66E91E603ADEE10CA" />
+<PayloadRef Id="f64F80BA9CDEFF243FC8E3ADA3FD960C1" />
+<PayloadRef Id="fBEA0D85C8A0DCB167E0673294A9345ED" />
+</MsiPackage>
+<MsiPackage Id="package_SDKDebuggersARMx86_en_us" Cache="yes" CacheId="{D9ACDBF9-C215-1024-89FC-87B78B3AA9E8}v8.100.26846" InstallSize="17813504" Size="18108416" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_SDKDebuggersARMx86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_SDKDebuggersARMx86_en_us" ProductCode="{D9ACDBF9-C215-1024-89FC-87B78B3AA9E8}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{D9ACDBF9-C215-1024-89FC-87B78B3AA9E8}" Imported="yes" />
+<RelatedPackage Id="{1CA67E41-7DE3-45D0-FC74-8E4B002F09EF}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{1CA67E41-7DE3-45D0-FC74-8E4B002F09EF}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{1CA67E41-7DE3-45D0-FC74-8E4B002F09EF}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_SDKDebuggersARMx86_en_us" />
+<PayloadRef Id="f65BD881841F7E8B9DDEF174CA471036F" />
+</MsiPackage>
+<MsiPackage Id="package_SDKARMAdditionsEULAx86_en_us" Cache="yes" CacheId="{EF466A11-70C0-6AE8-4BDF-B255D7180AEC}v8.100.26846" InstallSize="126383" Size="326909" PerMachine="yes" Permanent="no" Vital="yes" LogPathVariable="WixBundleLog_package_SDKARMAdditionsEULAx86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_SDKARMAdditionsEULAx86_en_us" ProductCode="{EF466A11-70C0-6AE8-4BDF-B255D7180AEC}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<Provides Key="{EF466A11-70C0-6AE8-4BDF-B255D7180AEC}" Imported="yes" />
+<RelatedPackage Id="{B4D07107-102A-CBD1-84A1-3A04091C0BED}" MaxVersion="8.100.26846" MaxInclusive="no" OnlyDetect="no" />
+<RelatedPackage Id="{B4D07107-102A-CBD1-84A1-3A04091C0BED}" MinVersion="8.100.26846" MinInclusive="no" OnlyDetect="yes" />
+<RelatedPackage Id="{B4D07107-102A-CBD1-84A1-3A04091C0BED}" MinVersion="8.100.26846" MinInclusive="yes" OnlyDetect="yes" />
+<PayloadRef Id="package_SDKARMAdditionsEULAx86_en_us" />
+<PayloadRef Id="pay17F042ADF1D4B5CACA4350A6F301428E" />
+</MsiPackage>
+<ExePackage Id="package_.Net_Framework_4.5" Cache="yes" CacheId="B2FF712CA0947040CA0B8E9BD7436A3C3524BB5D" InstallSize="50352408" Size="50352408" PerMachine="yes" Permanent="yes" Vital="yes" LogPathVariable="WixBundleLog_package_.Net_Framework_4.5" RollbackLogPathVariable="WixBundleRollbackLog_package_.Net_Framework_4.5" DetectCondition="(VersionNT64 AND Netfx45x64FullVersion &gt;=378389 AND Netfx45FullVersion &gt;=378389) OR (Netfx45FullVersion &gt;=378389)" InstallArguments="/q /norestart /log &quot;[package_.Net_Framework_4.5_InstallLog]&quot;" UninstallArguments="" RepairArguments="" Repairable="no">
+<PayloadRef Id="package_.Net_Framework_4.5" />
+</ExePackage>
+<MsiPackage Id="package_KitsConfigurationInstallerx86_en_us" Cache="yes" CacheId="{FE3AE33E-C2D7-9953-4349-84107B5626B4}v8.100.26846" InstallSize="0" Size="290816" PerMachine="yes" Permanent="no" Vital="yes" RollbackBoundaryBackward="WixDefaultBoundary" LogPathVariable="WixBundleLog_package_KitsConfigurationInstallerx86_en_us" RollbackLogPathVariable="WixBundleRollbackLog_package_KitsConfigurationInstallerx86_en_us" ProductCode="{FE3AE33E-C2D7-9953-4349-84107B5626B4}" Language="1033" Version="8.100.26846" DisplayInternalUI="no">
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="MSIFASTINSTALL" Value="7" />
+<MsiProperty Id="KITSROOT" Value="[KITSROOT]" />
+<MsiProperty Id="ARPSYSTEMCOMPONENT" Value="1" />
+<MsiProperty Id="UserLocale" Value="[UserLocale]" />
+<MsiProperty Id="KitsCeipOptIn" Value="[KitsCeipOptIn]" />
+<Provides Key="Microsoft.Windows.KitsConfigurationInstaller.x86.8.1" Imported="yes" />
+<RelatedPackage Id="{4877859B-4023-39C1-9A9B-6F568646D3F7}" MinVersion="0" MinInclusive="yes" OnlyDetect="no" />
+<PayloadRef Id="package_KitsConfigurationInstallerx86_en_us" />
+</MsiPackage>
+</Chain>
+</BurnManifest>
