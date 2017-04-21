@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("wdk8_downloader")]
-[assembly: AssemblyDescription("Windows Driver Kit Standalone Downloader")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("latencytr")]
 [assembly: AssemblyProduct("wdk8_downloader")]

@@ -15,45 +15,58 @@ namespace wdk8_downloader
     {
         static void Main(string[] args)
         {
-            using (MemoryStream ms = new MemoryStream(wdk8_downloader.Properties.Resources._0))
+
+            if (args.Length > 0 && (args[0].Equals("-h") || args[0].Equals("-help") || args[0].Equals("help")))
             {
-                using (XmlReader reader = XmlReader.Create(ms))
+                Console.WriteLine("\n**************\n\nExample usage with proxy settings:\n\nwdk8_downloader.exe [localProxyIp:port] [username] [password]\n\n**************\n\n");
+            }
+            else
+            {
+                using (MemoryStream ms = new MemoryStream(wdk8_downloader.Properties.Resources._0))
                 {
-
-                    DirectoryInfo dir = Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\wdkdownload");
-
-                    while (reader.Read())
+                    using (XmlReader reader = XmlReader.Create(ms))
                     {
-                        if (reader.Name == "Payload" && (reader.GetAttribute("Packaging") != "embedded"))
+                        DirectoryInfo dir = Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\wdkdownload");
+
+                        while (reader.Read())
                         {
-                            string filePath = reader.GetAttribute("FilePath");
-                            UriBuilder ub = new UriBuilder("http://download.microsoft.com/download/0/8/C/08C7497F-8551-4054-97DE-60C0E510D97A/wdk/" + filePath.Replace("\\", "/"));
-                            WebProxy proxy = new WebProxy("localProxyIp:8080", true);
-                            proxy.Credentials = new NetworkCredential("username", "password");
-                            WebRequest.DefaultWebProxy = proxy;
-                            using (WebClient client = new WebClient())
+                            if (reader.Name == "Payload" && (reader.GetAttribute("Packaging") != "embedded"))
                             {
-                                client.Proxy = proxy;
-                                string fileName = dir.FullName + "\\" + filePath;
-                                if(!Directory.Exists(Path.GetDirectoryName(fileName)))
+                                string filePath = reader.GetAttribute("FilePath");
+                                UriBuilder ub = new UriBuilder("http://download.microsoft.com/download/0/8/C/08C7497F-8551-4054-97DE-60C0E510D97A/wdk/" + filePath.Replace("\\", "/"));
+
+                                using (WebClient client = new WebClient())
                                 {
-                                    Directory.CreateDirectory(Path.GetDirectoryName(fileName));
-                                }
-                                try
-                                {
-                                    client.DownloadFile(ub.Uri, fileName);
-                                }
-                                catch (WebException ex)
-                                {
-                                    Console.WriteLine("File Not Download : {0}\nErrorMessage: {1}\nExceptionDetails: {2}\n\n", fileName, ex.Message, ex.StackTrace);
+
+                                    if (args.Length > 0)
+                                    {
+                                        WebProxy proxy = new WebProxy(args[0], true);
+                                        proxy.Credentials = new NetworkCredential(args[1], args[2]);
+                                        WebRequest.DefaultWebProxy = proxy;
+                                        client.Proxy = proxy;
+                                    }
+
+                                    string fileName = dir.FullName + "\\" + filePath;
+                                    if (!Directory.Exists(Path.GetDirectoryName(fileName)))
+                                    {
+                                        Directory.CreateDirectory(Path.GetDirectoryName(fileName));
+                                    }
+                                    try
+                                    {
+                                        client.DownloadFile(ub.Uri, fileName);
+                                    }
+                                    catch (WebException ex)
+                                    {
+                                        Console.WriteLine("File Not Download : {0}\nErrorMessage: {1}\nExceptionDetails: {2}\n\n", fileName, ex.Message, ex.StackTrace);
+                                    }
                                 }
                             }
                         }
+
+                        Console.WriteLine("\n\n\nAll process completed!\n");
                     }
 
-                    Console.WriteLine("\n\n\nAll process completed!\n");
                 }
-
             }
         }
 
